@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+    <title>Atividade 3 - Lista de Nomes</title>
+    <link rel="stylesheet" href="css/main.css" />
+</h:head>
+
+<h:body>
+    <div class="container">
+        <h1>Cadastro de Usuários</h1>
+        
+        <h:form>
+            <h:outputLabel value="Digite um nome:" />
+            <br/>
+            <h:inputText value="#{pessoa.nome}" styleClass="campo-texto" required="true"/>
+            
+            <h:commandButton value="Adicionar na Lista" action="#{pessoa.adicionar}" styleClass="btn-adicionar"/>
+        </h:form>
+
+        <div class="lista-nomes">
+            <h3>Nomes Cadastrados:</h3>
+            
+            <ui:repeat value="#{pessoa.nomes}" var="n">
+                <div class="item-nome">
+                    <h:outputText value="#{n}" />
+                </div>
+            </ui:repeat>
+        </div>
+    </div>
+</h:body>
+</html>
